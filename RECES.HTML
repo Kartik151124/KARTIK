@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perfect combination of chocolate and peanut butter - Reese's">
+    <meta name="keywords" content="Reese's, peanut butter cups, chocolate, Hershey's, candy">
+    <meta name="author" content="Your Name">
+    <title>Reese's - Perfect Combination</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Oswald', sans-serif;
+            line-height: 1.6;
+            background: #fff9f0;
+            color: #2c1810;
+        }
+
+        /* Swirl Animation */
+        @keyframes swirl {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.2); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(45deg, #ff7b00, #ff4d00);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='50' cy='50' r='40' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E") repeat;
+            opacity: 0.3;
+        }
+
+        header h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(44, 24, 16, 0.8), rgba(44, 24, 16, 0.8)),
+                        url('/api/placeholder/1200/600');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Product Features */
+        .features {
+            padding: 4rem 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(44, 24, 16, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-image {
+            height: 200px;
+            background: #ff4d00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .feature-content {
+            padding: 2rem;
+        }
+
+        /* Ingredients Section */
+        .ingredients {
+            background: linear-gradient(135deg, #2c1810, #4a2c1e);
+            color: white;
+            padding: 4rem 0;
+            margin: 3rem 0;
+            border-radius: 30px;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .ingredient-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Nutrition Facts */
+        .nutrition {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(44, 24, 16, 0.1);
+        }
+
+        .nutrition table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+        }
+
+        .nutrition th,
+        .nutrition td {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+            text-align: left;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c1810;
+            color: white;
+            padding: 4rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo svg {
+            width: 150px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .contact-form button {
+            background: #ff4d00;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #ff7b00;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>REESE'S</h1>
+            <p>Perfect Combination of Chocolate and Peanut Butter</p>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h2>Not Sorry For Loving Every Bite</h2>
+            <p>Since 1928, we've been making chocolate and peanut butter dreams come true</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="features">
+            <h2>Why People Love Reese's</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <svg viewBox="0 0 100 100" width="80">
+                            <circle cx="50" cy="50" r="45" fill="#2c1810"/>
+                            <circle cx="50" cy="50" r="35" fill="#ff7b00"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Rich Milk Chocolate</h3>
+                        <p>Premium quality chocolate crafted to perfection</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <svg viewBox="0 0 100 100" width="80">
+                            <rect x="10" y="10" width="80" height="80" rx="10" fill="#ff7b00"/>
+                            <circle cx="50" cy="50" r="30" fill="#2c1810"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Creamy Peanut Butter</h3>
+                        <p>Smooth, rich peanut butter filling in every cup</p>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-image">
+                        <svg viewBox="0 0 100 100" width="80">
+                            <path d="M50 10 L90 90 H10 Z" fill="#2c1810"/>
+                            <path d="M50 30 L80 90 H20 Z" fill="#ff7b00"/>
+                        </svg>
+                    </div>
+                    <div class="feature-content">
+                        <h3>Perfect Balance</h3>
+                        <p>The ideal ratio of chocolate to peanut butter</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="ingredients">
+            <h2>Key Ingredients</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-item">
+                    <h3>Milk Chocolate</h3>
+                    <p>Made with fresh milk and cocoa</p>
+                </div>
+                <div class="ingredient-item">
+                    <h3>Peanut Butter</h3>
+                    <p>Fresh-roasted peanuts</p>
+                </div>
+                <div class="ingredient-item">
+                    <h3>Sugar</h3>
+                    <p>Perfect sweetness</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="nutrition">
+            <h2>Nutrition Facts</h2>
+            <table>
+                <tr>
+                    <th>Serving Size</th>
+                    <td>2 cups (42g)</td>
+                </tr>
+                <tr>
+                    <th>Calories</th>
+                    <td>210</td>
+                </tr>
+                <tr>
+                    <th>Total Fat</th>
+                    <td>13g</td>
+                </tr>
+                <tr>
+                    <th>Total Carbohydrate</th>
+                    <td>24g</td>
+                </tr>
+                <tr>
+                    <th>Protein</th>
+                    <td>5g</td>
+                </tr>
+            </table>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-logo">
+                <svg viewBox="0 0 200 100">
+                    <rect x="20" y="20" width="160" height="60" rx="30" fill="#ff4d00"/>
+                    <text x="100" y="60" text-anchor="middle" fill="white" font-size="30" font-weight="bold">REESE'S</text>
+                </svg>
+                <p>© 2024 The Hershey Company. All Rights Reserved.</p>
+            </div>
+            <div class="company-info">
+                <h3>Contact Us</h3>
+                <p>The Hershey Company</p>
+                <p>100 Crystal A Drive</p>
+                <p>Hershey, PA 17033</p>
+            </div>
+            <div class="contact-form">
+                <h3>Get in Touch</h3>
+                <form>
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
